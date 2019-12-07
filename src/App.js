@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+let gameArray = [];
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    gameInfo: null  
+  };
+
+  componentDidMount() {
+    this.callBackend()
+      .then(res => this.handleJSON(res))
+      .catch(err => console.log(err));
+  }
+
+  handleJSON = (json) => {
+    console.log(json)
+    gameArray = JSON.stringify(json)
+    console.log(gameArray)
+    this.setState({gameInfo:gameArray})
+  }
+
+  callBackend = async () => {
+    const response = await fetch("express_backend");
+    const body = await response.json();
+
+    if (response.status !== 200) {
+      throw Error(body.message);
+    }
+    return body;
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <p>Bepis</p>
+        {this.state.gameInfo}
+     </div>
+    );
+  }
 }
 
 export default App;
