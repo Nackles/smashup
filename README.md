@@ -1,3 +1,9 @@
+Beginning files for Community Matchup, a League of Legends community I am building around communicating how to handle champion matchups no matter the cost - maybe you DO need to go full AP Ezreal to win this game, yeah?
+
+## CURRENTLY:
+This is the basic React app set up to recieve game data json from an express backend. Database support, user authentication, and more features are planned to be rolled out as time allows. Feel free to clone and run this React server to test anything, but as of now it is not commented thoroughly. I followed this guide to set up both the React client and the Express backend: https://medium.com/javascript-in-plain-english/full-stack-mongodb-react-node-js-express-js-in-one-simple-app-6cc8ed6de274
+
+```Everything below is React's default README.md```
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
